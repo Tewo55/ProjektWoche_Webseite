@@ -1,0 +1,436 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fefefe;
+    
+}
+canvas {width: 40%;height: 40%;
+
+    
+    position: absolute;
+    top: 20%;
+    
+    left: 30%;
+}
+
+.heade {
+    width: 100%;
+    height: 80px;
+    background: #022c42;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.logo{
+font-size: 28px;
+font-weight: bold;
+color: #FFFFFF;
+}
+.burger{
+    display: none;
+}
+.nav-bar ul{
+    display: flex;
+}
+.nav-bar ul li a {
+    display: block;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    font-size: 17px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 0 5px ;
+}
+.nav-bar ul li a:hover{
+    color: #041823;
+    Background: #fefefe;
+}
+.nav-bar ul li a.Home{
+    color: #041823;
+    Background: #fefefe;
+}
+.nav-bar ul li a.Home:hover{
+    color: #fefefe;
+    Background: #041823;
+}
+#winner-message {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-spacing: 0; 
+    border-collapse: collapse; /* Entferne den Abstand zwischen den Zellen und entfernt die doppelten border*/
+    box-shadow: -4px -4px 4px #000000;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border: 3px solid #041823; 
+    box-shadow: 4px 4px 4px #000000;
+
+}
+
+
+  td:hover {
+    background-color: #F5F5F5;
+    cursor: pointer;
+  }
+  td.x {
+    background-image: url(x-button.png);
+    background-size: cover;
+}
+
+td.o {
+    background-image: url(o.png);
+    background-size: cover;
+}
+
+
+  #cell-1, #cell-2, #cell-3, #cell-4, #cell-5, #cell-6, #cell-7, #cell-8, #cell-9 {
+    font-size: 73px;
+    font-weight: bold;
+    background-color: #d0e3ea;
+    color: #FFFFFF;
+  }
+  
+  
+
+@media only screen and (max-width: 1320px) {
+    .header {
+      padding: 0 50px;
+    }
+  }
+  
+    
+
+@media only screen and (max-width: 1100px){
+    .heade{
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+    .burger .menu{
+        width: 30px;
+        height: 3px;
+        background: #fefefe;
+        margin: 6px 0;
+        border-radius: 50px;
+    }
+
+    .nav-bar.active{
+        height: 450px;
+        
+    }
+    .nav-bar{
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: #022c42;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+    .nav-bar ul{
+        display: block;
+        width: fit-content;
+        margin:  80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+
+    }
+    .nav-bar ul li a{
+        margin-bottom: 12px;
+        
+    }
+}
+
+
+table {
+    border-collapse: separate;
+    
+}
+
+td {
+    border: 2px solid 	#517396;
+}
+
+td:first-child {
+    border-left: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:first-child td {
+    border-top: none;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+#scoreboard, #scoreboard.reset-button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70vh;
+}
+
+#scoreboard{
+    background-color:#517396;
+    width: 50%;
+    height: 15%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* divide the grid into 3 columns */
+        
+        position: absolute;
+        top: 80%; /* set the top property to a value greater than canvas element's top property plus its height */
+        left: 50%;
+        transform: translate(-50%, -20%);
+        
+        
+
+    
+    
+}
+#scoreboard div {
+    color: white;
+    padding-top:10px ;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+#reset-button{
+    display: inline-flex;
+    height: 50px;
+    padding: 0;
+    background: #022c42;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#reset-button-snake{
+    display: inline-flex;
+    height: 50px;
+    padding: 0;
+    background: #022c42;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#reset-button:hover{
+    background: #5c7893;
+}
+#reset-button:active{
+    background: #517396;
+}
+.bText, .bIcon{
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: #ffffff;
+    height: 100%;
+}
+.bIcon{
+    font-size: 1.5em;
+    background: rgba(57, 90, 127, 0.8);
+}
+
+/* SNAKE */
+
+
+canvas {
+    
+    background-color: #222;
+    border: 5px solid #272e38;
+  }
+
+  /* Pong*/
+
+ /* #game {
+    width: 700px;
+    height: 400px;
+    background-color: #2E383F;
+    position: relative;
+    border: 5px solid #000000 ;
+  }
+  
+  #player, #computer {
+    width: 20px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+  }
+  
+  #player {
+    top: 150px;
+    left: 20px;
+  }
+  
+  #computer {
+    top: 150px;
+    right: 20px;
+  }
+  
+  #ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  #score {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+  }
+  */
+ .instructions { 
+	color: white;
+  text-align: center;
+  font-family: Courier New;
+}
+html,
+body {
+	height: 100%;	
+}
+
+body {
+	background: #fff;
+	overflow: hidden;
+}
+
+.pong,
+.pong * {
+	position: absolute;
+}
+
+.pong {
+	box-shadow: 0 0 0 8px #666;
+	height: 1500px;
+	left: 50%;
+	top: 50%;
+	width: 2000px;
+  margin: 20px;
+}
+
+.paddle {
+	background: #fff;
+	height: 120px;
+	left: 0;
+	top: 0;
+	width: 30px;
+}
+
+.paddle-player { 
+	background: hsl(130, 100%, 60%);
+}
+
+.paddle-enemy {
+	background: hsl(200, 100%, 60%);
+}
+.pong {
+	box-shadow: 0 0 0 8px #666;
+	height: 500px; /* Hier geändert */
+	left: 50%;
+	top: 50%;
+	width: 1000px; /* Hier geändert */
+  margin: 20px;
+}
+
+
+.score {
+	color: white;
+	font: bold 6em/1 'Roboto Mono', monospace;
+	top: 80px;
+}
+.score-snake {
+	color: white;
+	font: bold 6em/1 'Roboto Mono', monospace;
+	top: 80px;
+    text-align: center;
+}
+
+.score-player {
+	color: hsl(130, 100%, 60%);
+	left: 180px;
+}
+
+.score-enemy {
+	color: hsl(200, 100%, 60%);
+	right: 180px;
+}
+
+.net {
+	background: #666;
+	height: 100%;
+	left: 50%;
+	margin-left: -2px;
+	top: 0;
+	width: 4px;
+}
+
+.ball {
+        background: #022c42;
+	height: 25px;
+	left: 0;
+	top: 0;
+	width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
